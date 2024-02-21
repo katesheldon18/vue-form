@@ -9,7 +9,31 @@
   <body>
     <div id="app">
       <h1>Kate's Vue Form</h1>
+      <input type="text" v-model="form.name" placeholder="Your Name" />
+      <input type="text" v-model="form.email" placeholder="Email" />
+      <button type="button" v-on:click="go">GO</button>
+      <p>Hello, {{ form.name }}! Your email is {{ form.email }}</p>
     </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/App.vue"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            form: {
+              name: "",
+              email: "",
+            },
+          };
+        },
+        methods: {
+          go()
+          {console.warn(this.form)}
+        }
+      });
+
+      app.mount("#app");
+    </script>
   </body>
 </html>
